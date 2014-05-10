@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.happy.home.dao;
 
 import java.sql.SQLException;
@@ -46,22 +45,3 @@ public class FacilityDAO extends BaseDAO<Facility, Integer> implements FacilityD
 	}
 
 }
-=======
-package com.happy.home.dao;
-
-import java.sql.SQLException;
-
-import com.happy.home.model.Facility;
-
-public class FacilityDAO extends BaseDAO<Facility, Integer> implements FacilityDAOInterface {
-
-	public FacilityDAO(Class<Facility> dataClass) throws SQLException {
-		super(dataClass);
-	}
-	
-	public void fetch500MeterAround() {
-		
-	}
-
-}
->>>>>>> ca35be773accb03e03373f4ed158421264ef8bc4
