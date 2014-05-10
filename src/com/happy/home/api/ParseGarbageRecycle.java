@@ -16,8 +16,7 @@ public class ParseGarbageRecycle
 {
 	 public static void parseGarbageRecycle(Activity mActivity){
 
-		String file_url = "android.resource://" + mActivity.getPackageName() +"/"+R.raw.restore_source;
-		String message = ParseApi.loadJSONFromAsset(mActivity, file_url);
+		String message = ParseApi.loadJSONFromAsset(mActivity, "restore_source.json");
 		
 		JSONArray jArray;
 		try

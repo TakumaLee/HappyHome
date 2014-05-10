@@ -22,8 +22,7 @@ public class ParseParkingApi
 	public static void parseParking(Activity mActivity)
 	{
 
-		String file_url = "android.resource://" + mActivity.getPackageName() +"/"+R.raw.parking_data;
-		String message = ParseApi.loadJSONFromAsset(mActivity, file_url);
+		String message = ParseApi.loadJSONFromAsset(mActivity, "parking_data.json");
 
 		JSONArray jArray;
 		try

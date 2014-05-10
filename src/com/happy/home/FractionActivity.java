@@ -47,7 +47,6 @@ public class FractionActivity extends BaseActivity {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			double longitude,latitude;
 			View rootView = inflater.inflate(R.layout.fragment_fraction,
 					container, false);
 			Intent intent = getActivity().getIntent();
@@ -88,14 +87,11 @@ public class FractionActivity extends BaseActivity {
 					startActivity(intent);
 				}
 			});
-			//initParse();
+			initParse();
 			
 			return rootView;
 		}
 		
-		private void getCoordinates(String url){
-			
-		}
 		private void initParse(){
 			Activity activity = getActivity();
 			SharedPreferences sharedPreferences= activity.getSharedPreferences("SETTING",0);
@@ -110,6 +106,7 @@ public class FractionActivity extends BaseActivity {
 		private float getFraction(String url){
 			int count = 50;
 			LatLng latLng = getLatLng(url);
+			if(latLng==null)return 0;
 			for(int i=1;i<=3;i++){
 				List<Facility> facility;
 				facility = FacilityManager.getInstance().fetchAroundFacilities(i, latLng.longitude,latLng.latitude);
