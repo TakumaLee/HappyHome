@@ -48,6 +48,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
-        android:text="評價"
+        android:text="評價 "
         android:background="@drawable/next_button"/>
 </RelativeLayout>

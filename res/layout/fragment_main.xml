@@ -35,6 +35,6 @@
         android:layout_marginTop="30dp"
         android:textSize="20sp" 
         android:ems="9"
-        android:text="歡迎使用幸福家園~\n請在告示牌內填入您家住址\n接著! 讓我們來看看分數吧~" />
+        android:text="歡迎使用幸福家園~\n請在告示牌內填入您家住址\n接著! 讓我們來看看分數吧~ " />
 
 </RelativeLayout>

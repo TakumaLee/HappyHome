@@ -54,22 +54,22 @@ public class FractionActivity extends BaseActivity {
 			fractionTextView.setText(String.valueOf(fraction));
 			String comment;
 			if(fraction>90){
-				comment="Àuµ¥®a¶é!!\n§A³o½ú¤l¤£¥Î·h®a¤F!";
+				comment="å„ªç­‰å®¶åœ’!!\nä½ é€™è¼©å­ä¸ç”¨æ¬å®¶äº†!";
 			}else if(fraction>80){
-				comment="¤£¿ù­ò!\n³o¸ÌªºÀô¹Ò¦í°_¨ÓÁÙ¤£¿ù";
+				comment="ä¸éŒ¯å”·!\né€™è£¡çš„ç’°å¢ƒä½èµ·ä¾†é‚„ä¸éŒ¯";
 			}else if(fraction>70){
-				comment="®¥³ß§A!\n®a¸Ìªşªñ³]¬IÁÙºâ³ô¥Î";
+				comment="æ­å–œä½ !\nå®¶è£¡é™„è¿‘è¨­æ–½é‚„ç®—å ªç”¨";
 			}else if(fraction>60){
-				comment="®¦...\n¤]³\­n¦Ò¼{·h®a¤F...";
+				comment="æ©...\nä¹Ÿè¨±è¦è€ƒæ…®æ¬å®¶äº†...";
 			}else{
-				comment="(Åå)!\n³o¸Ì§A¤]¦í±o¤U¥h!?";
+				comment="(é©š)!\né€™è£¡ä½ ä¹Ÿä½å¾—ä¸‹å»!?";
 			}
 			commentTextView.setText(comment);
 			getDetailButton.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
 					Intent intent = new Intent(getActivity(),DetailActivity.class);
 					Bundle bundle = new Bundle();
-					bundle.putString("title", "©¯ ºÖ ®a ¶é");
+					bundle.putString("title", "å¹¸ ç¦ å®¶ åœ’");
 					bundle.putString("detail", "detail");
 					intent.putExtras(bundle);
 					startActivity(intent);

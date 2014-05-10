@@ -42,7 +42,7 @@ public class MainActivity extends BaseActivity {
 				public void onClick(View v) {
 					Intent intent = new Intent(getActivity(),FractionActivity.class);
 					Bundle bundle = new Bundle();
-					bundle.putString("title", "©Ø ∫÷ Æa ∂È");
+					bundle.putString("title", "Âπ∏ Á¶è ÂÆ∂ Âúí");
 					bundle.putString("url", editText.getText().toString());
 					intent.putExtras(bundle);
 					startActivity(intent);
