@@ -9,13 +9,14 @@ public class ParseApi
 {
 	// type 1: parking, 2: Recycle, 3: Hospital
 	
-	public static String loadJSONFromAsset(Activity mActivity, String file_url)
+	public static String loadJSONFromAsset(Activity mActivity, String file_name)
 	{
 		String json = null;
 		try
 		{
 
-			InputStream is = mActivity.getAssets().open("parking_data.json");
+//			InputStream is = mActivity.getAssets().open("parking_data.json");
+			InputStream is = mActivity.getAssets().open(file_name);
 
 			int size = is.available();
 
