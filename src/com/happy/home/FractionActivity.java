@@ -83,7 +83,7 @@ public class FractionActivity extends BaseActivity {
 		}
 		
 		private float getFraction(){
-			return 91;
+			return 71;
 		}
 	}
 
