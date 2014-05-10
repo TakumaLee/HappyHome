@@ -47,6 +47,7 @@ public class FractionActivity extends BaseActivity {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
+			initParse();
 			View rootView = inflater.inflate(R.layout.fragment_fraction,
 					container, false);
 			Intent intent = getActivity().getIntent();
@@ -87,7 +88,6 @@ public class FractionActivity extends BaseActivity {
 					startActivity(intent);
 				}
 			});
-			initParse();
 			
 			return rootView;
 		}

@@ -3,6 +3,7 @@ package com.happy.home;
 import com.happy.home.config.AppConfig;
 import com.happy.home.context.ApplicationContextSingleton;
 import com.happy.home.dao.DAOFactory;
+import com.happy.home.manager.FacilityManager;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -26,6 +27,7 @@ public class CLApplication extends Application {
         appContext = ApplicationContextSingleton.initialize(getApplicationContext());
         AppConfig.initConfig(getApplicationContext(), "0");
         daoFactory = DAOFactory.initSingleton(getApplicationContext());
+        FacilityManager.initSingleton(getApplicationContext());
     }
     
     public static void setCurrentActivity(Activity currentActivity) {
