@@ -1,6 +1,9 @@
 package com.happy.home;
 
 import com.happy.home.R;
+import com.happy.home.manager.FacilityManager;
+import com.happy.home.utils.PositionRetreiver;
+
 import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +24,7 @@ public class MainActivity extends BaseActivity {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+
 	}
 
 	/**
