@@ -28,7 +28,7 @@ public class AppConfig {
 
     public static void initConfig(Context context, String currentRevision) {
         if (sharedPrefs == null) {
-            sharedPrefs = context.getSharedPreferences("ConfigChocolabsApp", Context.MODE_PRIVATE);
+            sharedPrefs = context.getSharedPreferences("ConfigHackathonApp", Context.MODE_PRIVATE);
         }
         Revision = currentRevision;
         try {
