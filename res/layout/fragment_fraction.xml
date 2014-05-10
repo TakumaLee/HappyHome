@@ -16,7 +16,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="110dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="40dp"
         android:text="@string/hello_world"
         android:textSize="28sp" />
 
@@ -25,9 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/titleTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="100dp"
         android:text="90" 
+        android:textColor="#ffffffff"
         android:textSize="44sp"/>
 
     <TextView
@@ -37,7 +38,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/fractionTextView"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="40dp"
         android:text="TextView"
         android:ems="7"
         android:textSize="20sp" />
@@ -47,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="10dp"
         android:text="評價 "
         android:background="@drawable/next_button"/>
 </RelativeLayout>
