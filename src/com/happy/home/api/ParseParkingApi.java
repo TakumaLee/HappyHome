@@ -8,6 +8,7 @@ import org.json.JSONException;
 import android.app.Activity;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.happy.home.R;
 import com.happy.home.dao.DAOFactory;
 import com.happy.home.model.Facility;
 import com.happy.home.utils.PositionRetreiver;
@@ -18,9 +19,10 @@ public class ParseParkingApi
 	// String uri = "android.resource://" + getPackageName() +
 	// "/"+R.raw.filename;
 
-	static void parseParking(Activity mActivity, String file_url)
+	public static void parseParking(Activity mActivity)
 	{
 
+		String file_url = "android.resource://" + mActivity.getPackageName() +"/"+R.raw.parking_data;
 		String message = ParseApi.loadJSONFromAsset(mActivity, file_url);
 
 		JSONArray jArray;

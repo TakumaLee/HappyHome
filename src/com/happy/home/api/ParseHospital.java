@@ -7,14 +7,16 @@ import org.json.JSONArray;
 import android.app.Activity;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.happy.home.R;
 import com.happy.home.dao.DAOFactory;
 import com.happy.home.model.Facility;
 import com.happy.home.utils.PositionRetreiver;
 
 public class ParseHospital
 {
-	static void parseHospital(Activity mActivity, String file_url){
-		
+	public static void parseHospital(Activity mActivity){
+
+		String file_url = "android.resource://" + mActivity.getPackageName() +"/"+R.raw.hospital;
 		String message = ParseApi.loadJSONFromAsset(mActivity, file_url);
 		
 		JSONArray jArray;
