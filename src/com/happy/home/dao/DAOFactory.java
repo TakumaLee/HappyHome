@@ -3,6 +3,8 @@ package com.happy.home.dao;
 import java.sql.SQLException;
 
 import com.happy.home.database.DatabaseHelper;
+import com.happy.home.database.DatabaseUtil;
+import com.happy.home.model.Facility;
 
 import android.content.Context;
 
@@ -13,6 +15,7 @@ public class DAOFactory {
 
     protected Context 						context;
     protected DatabaseHelper 				dbHelper;
+    protected FacilityDAOInterface			facilityDAO;
 
     /* Constructors */
     private DAOFactory(Context context) {
@@ -47,16 +50,16 @@ public class DAOFactory {
 
     /* End of Transaction-oriented methods */
     
-//    public synchronized DramaDAOInterface getDramaDAO() {
-//        if (dramaDao == null) {
-//            try {
-//            	dramaDao = (DramaDAOInterface) dbHelper.getDao(Drama.class);
-//            } catch (SQLException e) {
-//            	DatabaseUtil.throwAndroidSQLException(TAG, e);
-//            }
-//        }
-//        return dramaDao;
-//    }
+    public synchronized FacilityDAOInterface getfacilityDAO() {
+        if (facilityDAO == null) {
+            try {
+            	facilityDAO = (FacilityDAOInterface) dbHelper.getDao(Facility.class);
+            } catch (SQLException e) {
+            	DatabaseUtil.throwAndroidSQLException(TAG, e);
+            }
+        }
+        return facilityDAO;
+    }
     
     public synchronized void EraseAllData() {
     	dbHelper.eraseAllData(dbHelper.getReadableDatabase(), dbHelper.getConnectionSource());
