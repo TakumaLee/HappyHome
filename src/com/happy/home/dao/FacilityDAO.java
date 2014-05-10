@@ -9,12 +9,25 @@ import com.happy.home.database.DatabaseUtil;
 import com.happy.home.model.Facility;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
+import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.table.DatabaseTableConfig;
 
 public class FacilityDAO extends BaseDAO<Facility, Integer> implements FacilityDAOInterface {
 	private static String TAG = FacilityDAO.class.getSimpleName();
-
+	
+	
 	public FacilityDAO(Class<Facility> dataClass) throws SQLException {
 		super(dataClass);
+	}
+	
+	public FacilityDAO(ConnectionSource connectionSource,
+			Class<Facility> dataClass) throws SQLException {
+		super(connectionSource, dataClass);
+	}
+	
+	public FacilityDAO(ConnectionSource connectionSource,
+			DatabaseTableConfig<Facility> tableConfig) throws SQLException {
+		super(connectionSource, tableConfig);
 	}
 	
 	public List<Facility> fetch500MeterAround(int type, double x, double y) {
@@ -43,5 +56,4 @@ public class FacilityDAO extends BaseDAO<Facility, Integer> implements FacilityD
 		}
 		return facilities;
 	}
-
 }
