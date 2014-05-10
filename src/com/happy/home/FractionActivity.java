@@ -1,7 +1,10 @@
 package com.happy.home;
 
 import com.happy.home.R;
+import com.happy.home.api.ParseParkingApi;
+
 import android.support.v4.app.Fragment;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -75,15 +78,21 @@ public class FractionActivity extends BaseActivity {
 					startActivity(intent);
 				}
 			});
+			initParse();
+			
 			return rootView;
 		}
 		
 		private void getCoordinates(String url){
 			
 		}
+		private void initParse(){
+			Activity activity = getActivity();
+			ParseParkingApi.parseParking(activity);
+		}
 		
 		private float getFraction(){
-			return 91;
+			return 71;
 		}
 	}
 
