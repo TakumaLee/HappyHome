@@ -16,8 +16,7 @@ public class ParseHospital
 {
 	public static void parseHospital(Activity mActivity){
 
-		String file_url = "android.resource://" + mActivity.getPackageName() +"/"+R.raw.hospital;
-		String message = ParseApi.loadJSONFromAsset(mActivity, file_url);
+		String message = ParseApi.loadJSONFromAsset(mActivity, "hospital.json");
 		
 		JSONArray jArray;
 		try
