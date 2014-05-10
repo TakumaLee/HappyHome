@@ -22,27 +22,13 @@ public class AppConfig {
     private static String appName = "";
     private static int appVersionCode = 0;
     
-    /**
-     *  Config for Chocolabs in Drama TV
-     *  0912853025
-     *  016c6fcfa3922ff682852614d8b2abc1
-     *  
-     * */
-    public static String CHOCOLABS_API_URL = "http://services.chocolabs.com/api/v1/global_dramas/";
-    public static String AES_KEY = "Ch0coL@Bs";
-    public static String Hash_KEY = "016c6fcfa3922ff682852614d8b2abc1";
-    public static String AdMob_KEY = "ab6477d75b6b483c";
-    public static String CHOCOLABS_EMAIL = "mailto:support@chocolabs.com";
-    public static String GOOGLEPLAY_MARKET = "market://details?id=com.chocolabs.dramot";
-	public static String FACEBOOK_FANS_URL = "https://www.facebook.com/chocolabs.fans";
-	public static String ABOUTUS_URL = "https://spreadsheets.google.com/feeds/cells/0ArO-dFNIhPa4dGQ1OGRKc2VxWnVoR29KUGYzT291TlE/6/public/basic?alt=json";
 
     private AppConfig() {
     }
 
     public static void initConfig(Context context, String currentRevision) {
         if (sharedPrefs == null) {
-            sharedPrefs = context.getSharedPreferences("ConfigChocolabsApp", Context.MODE_PRIVATE);
+            sharedPrefs = context.getSharedPreferences("ConfigHackathonApp", Context.MODE_PRIVATE);
         }
         Revision = currentRevision;
         try {
@@ -99,7 +85,6 @@ public class AppConfig {
 
     private static void setProduction() {
         Editor editPrefs = sharedPrefs.edit();
-        editPrefs.putString("CHOCOLABS_API_URL", CHOCOLABS_API_URL);
         editPrefs.commit();
         System.exit(0);
     }
