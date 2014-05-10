@@ -1,12 +1,22 @@
 package com.happy.home;
 
+import java.util.List;
+
+import com.google.android.gms.maps.model.LatLng;
 import com.happy.home.R;
+import com.happy.home.api.ParseGarbageRecycle;
+import com.happy.home.api.ParseHospital;
 import com.happy.home.api.ParseParkingApi;
+import com.happy.home.manager.FacilityManager;
+import com.happy.home.model.Facility;
+import com.happy.home.utils.PositionRetreiver;
 
 import android.support.v4.app.Fragment;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -53,7 +63,7 @@ public class FractionActivity extends BaseActivity {
 			InitSize.getInstance(getActivity()).resetViewMarginTop(commentTextView);
 			
 			placeTextView.setText(bundle.getString("title"));
-			float fraction = getFraction();
+			float fraction = getFraction(url);
 			fractionTextView.setText(String.valueOf(fraction));
 			String comment;
 			if(fraction>90){
@@ -78,7 +88,7 @@ public class FractionActivity extends BaseActivity {
 					startActivity(intent);
 				}
 			});
-			initParse();
+			//initParse();
 			
 			return rootView;
 		}
@@ -88,11 +98,31 @@ public class FractionActivity extends BaseActivity {
 		}
 		private void initParse(){
 			Activity activity = getActivity();
-			ParseParkingApi.parseParking(activity);
+			SharedPreferences sharedPreferences= activity.getSharedPreferences("SETTING",0);
+			if(sharedPreferences.getBoolean("initParse", true)){
+				ParseParkingApi.parseParking(activity);
+				ParseHospital.parseHospital(activity);
+				ParseGarbageRecycle.parseGarbageRecycle(activity);
+				sharedPreferences.edit().putBoolean("initParse", false).commit();
+			}
 		}
 		
-		private float getFraction(){
-			return 71;
+		private float getFraction(String url){
+			int count = 50;
+			LatLng latLng = getLatLng(url);
+			for(int i=1;i<=3;i++){
+				List<Facility> facility;
+				facility = FacilityManager.getInstance().fetchAroundFacilities(i, latLng.longitude,latLng.latitude);
+				Log.v("facility", "======"+i+"=====");
+				for(Facility f:facility){
+					Log.v("facility", f.getTitle());
+				}
+			}
+			return count;
+		}
+		
+		private LatLng getLatLng(String url){
+			return PositionRetreiver.getGPSLocationFromAddressString(url);
 		}
 	}
 
