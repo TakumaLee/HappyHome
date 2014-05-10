@@ -37,16 +37,16 @@ public class FacilityDAO extends BaseDAO<Facility, Integer> implements FacilityD
 		try {
 			QueryBuilder<Facility, Integer> queryBuilder = queryBuilder();
 			if (type == 0) {
-				queryBuilder.where().ge("x_long", x - 0.0045045)
-				.and().le("x_long", x + 0.0045045)
-				.and().ge("y_long", y - 0.0045045)
-				.and().le("y_long", y + 0.0045045);
+				queryBuilder.where().ge("x_long", y - 0.009009)
+				.and().le("x_long", y + 0.009009)
+				.and().ge("y_long", x - 0.009009)
+				.and().le("y_long", x + 0.009009);
 			} else {
 				queryBuilder.where().eq("type", type)
-				.and().ge("x_long", x - 0.0045045)
-				.and().le("x_long", x + 0.0045045)
-				.and().ge("y_long", y - 0.0045045)
-				.and().le("y_long", y + 0.0045045);
+				.and().ge("x_long", y - 0.009009)
+				.and().le("x_long", y + 0.009009)
+				.and().ge("y_long", x - 0.009009)
+				.and().le("y_long", x + 0.009009);
 			}
 			
 			PreparedQuery<Facility> facilityQuery = queryBuilder.prepare();
@@ -54,6 +54,7 @@ public class FacilityDAO extends BaseDAO<Facility, Integer> implements FacilityD
 		} catch (SQLException e) {
 			DatabaseUtil.throwAndroidSQLException(TAG, e);
 		}
+//		facilities = this.queryForAllOrFail();
 		return facilities;
 	}
 }

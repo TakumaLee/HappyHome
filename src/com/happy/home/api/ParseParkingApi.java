@@ -57,13 +57,10 @@ public class ParseParkingApi
 				facility.setY_long(xy.longitude);
 				facility.setType(type);
 				facility.setTitle(title);	
-				try
-				{
-					DAOFactory.getInstance().getfacilityDAO().createOrUpdate(facility);
-				} catch (SQLException e)
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				try {
+					DAOFactory.getInstance().getfacilityDAO().createOrUpdateOrFail(facility);
+				} catch (Exception e) {
+					// TODO: handle exception
 				}
 
 			}
