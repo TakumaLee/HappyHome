@@ -14,7 +14,8 @@ import com.j256.ormlite.table.DatabaseTableConfig;
 
 public class FacilityDAO extends BaseDAO<Facility, Integer> implements FacilityDAOInterface {
 	private static String TAG = FacilityDAO.class.getSimpleName();
-
+	
+	
 	public FacilityDAO(Class<Facility> dataClass) throws SQLException {
 		super(dataClass);
 	}
