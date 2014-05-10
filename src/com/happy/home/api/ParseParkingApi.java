@@ -6,6 +6,11 @@ import java.io.InputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.happy.home.dao.DAOFactory;
+import com.happy.home.model.Facility;
+import com.happy.home.utils.PositionRetreiver;
+
 import android.app.Activity;
 
 public class ParseParkingApi
@@ -36,15 +41,22 @@ public class ParseParkingApi
 					// TODO: handle exception
 				}
 
-				double x_lat = 0;
+				LatLng xy = null;
 				try
 				{
 					double tw97x = jArray.getJSONObject(i).getDouble("tw97x");
-					x_lat = ParseTW97(tw97x);
+					double tw97y = jArray.getJSONObject(i).getDouble("tw97y");
+					xy = PositionRetreiver.getGPSLocationFromTWD97(tw97x, tw97y);
 				} catch (Exception e)
 				{
 					// TODO: handle exception
 				}
+				
+				Facility facility = new Facility();
+				facility.setX_long(xy.latitude);
+				facility.setY_long(xy.longitude);
+				facility.setType(type);
+				facility.setTitle(title);	
 
 			}
 
@@ -54,12 +66,6 @@ public class ParseParkingApi
 			e.printStackTrace();
 		}
 
-	}
-
-	private static double ParseTW97(double tw97x)
-	{
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	public static String loadJSONFromAsset(Activity mActivity, String file_url)
