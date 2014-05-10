@@ -3,7 +3,6 @@ package com.happy.home.api;
 import java.sql.SQLException;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 
 import android.app.Activity;
 
@@ -12,25 +11,20 @@ import com.happy.home.dao.DAOFactory;
 import com.happy.home.model.Facility;
 import com.happy.home.utils.PositionRetreiver;
 
-public class ParseParkingApi
+public class ParseHospital
 {
-
-	// String uri = "android.resource://" + getPackageName() +
-	// "/"+R.raw.filename;
-
-	static void parseParking(Activity mActivity, String file_url)
-	{
-
+	static void parseHospital(Activity mActivity, String file_url){
+		
 		String message = ParseApi.loadJSONFromAsset(mActivity, file_url);
-
+		
 		JSONArray jArray;
 		try
 		{
 			jArray = new JSONArray(message);
 			for (int i = 0; i < jArray.length(); i++)
 			{
-				int type = 1;
-
+				int type = 3;
+				
 				String title = "";
 				try
 				{
@@ -39,13 +33,13 @@ public class ParseParkingApi
 				{
 					// TODO: handle exception
 				}
-
+				
+//				String address = "";
 				LatLng xy = null;
 				try
 				{
-					double tw97x = jArray.getJSONObject(i).getDouble("tw97x");
-					double tw97y = jArray.getJSONObject(i).getDouble("tw97y");
-					xy = PositionRetreiver.getGPSLocationFromTWD97(tw97x, tw97y);
+					String address =  jArray.getJSONObject(i).getString("address_for_display");
+					xy = PositionRetreiver.getGPSLocationFromAddressString(address);
 				} catch (Exception e)
 				{
 					// TODO: handle exception
@@ -64,15 +58,11 @@ public class ParseParkingApi
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
 			}
-
-		} catch (JSONException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		}catch(Exception e){
+			
 		}
-
+		
 	}
-
+	
 }
