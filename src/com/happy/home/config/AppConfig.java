@@ -22,7 +22,6 @@ public class AppConfig {
     private static String appName = "";
     private static int appVersionCode = 0;
     
-
     private AppConfig() {
     }
 
