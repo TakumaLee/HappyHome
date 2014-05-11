@@ -23,6 +23,7 @@ public class AppConfig {
     private static int appVersionCode = 0;
     
     private AppConfig() {
+    	
     }
 
     public static void initConfig(Context context, String currentRevision) {
