@@ -16,8 +16,8 @@ import android.hardware.Camera.Face;
 import android.os.Handler;
 import android.util.Log;
 
-public class CLApplication extends Application {
-	private static String TAG = CLApplication.class.getSimpleName();
+public class HHApplication extends Application {
+	private static String TAG = HHApplication.class.getSimpleName();
 	DAOFactory daoFactory;
     
     public ApplicationContextSingleton 	appContext;
